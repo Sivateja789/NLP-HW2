@@ -25,21 +25,6 @@ The work includes:
 
 ---
 
-## 📁 Repository Structure
-
-```
-CS5760-HW2/
-│── README.md
-│── Homework2_Solutions.docx
-│
-├── src/
-│   ├── bigram_lm.py          # Bigram language model training & scoring
-│   ├── metrics_q5.py         # Precision/Recall + macro/micro calculations
-│
-└── screenshots/              # Optional: add outputs or figures here
-```
-
----
 
 ## 🧠 Key Concepts Covered
 
@@ -95,28 +80,6 @@ In single-label multi-class classification:
 
 ---
 
-## ▶️ How to Run the Code
-
-### Clone the repository
-
-```bash
-git clone https://github.com/<your-username>/CS5760-HW2.git
-cd CS5760-HW2
-```
-
-### Run Bigram Language Model
-
-```bash
-python src/bigram_lm.py
-```
-
-### Run Metrics Calculation
-
-```bash
-python src/metrics_q5.py
-```
-
----
 
 ## 🛠 Requirements
 
@@ -127,18 +90,3 @@ Install NumPy if needed:
 ```bash
 pip install numpy
 ```
-
----
-
-## ✍️ Author
-
-**Katta Siva Teja**
-MS Data Science & AI
-University of Central Missouri
-
----
-
-## 📚 Academic Integrity Notice
-
-This repository is submitted as part of coursework for CS5760.
-Code and explanations are provided for educational purposes only.
