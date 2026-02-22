@@ -1,6 +1,6 @@
-# CS5760 — NLP Homework 2 (Spring 2026)
+# Bigram Language Model — Python Implementation
 
-## 👤 Student Information
+## 👤 Student Details
 
 **Name:** KATTA SIVA TEJA
 **Student ID:** 700774274
@@ -8,85 +8,91 @@
 
 ---
 
-## 📌 Project Overview
+## 📌 Project Description
 
-This repository contains my solutions for **Homework 2** in NLP.
-The assignment focuses on probabilistic models, evaluation metrics, and ethical considerations in NLP systems.
+This project demonstrates how to build a simple **Bigram Language Model** in Python.
+The objective is to learn word-to-word transition probabilities from a small training corpus and use those probabilities to evaluate how likely different sentences are.
 
-The work includes:
-
-* Naive Bayes text classification with **Laplace smoothing**
-* Analysis of **harms in automated classification**
-* Bigram Language Model probability calculations
-* Handling **zero-probability problems** in language models
-* **Backoff model** reasoning for unseen trigrams
-* Computing **precision, recall, macro-average, and micro-average**
-* Python implementations for evaluation metrics and language modeling
+The model estimates probabilities using **Maximum Likelihood Estimation (MLE)**.
 
 ---
 
+## 🗂 Training Corpus
 
-## 🧠 Key Concepts Covered
+The model is trained on the following sentences:
 
-### 1️⃣ Naive Bayes Classification
+```
+I love NLP  
+I love deep learning  
+deep learning is fun
+```
 
-Used probabilistic reasoning with add-1 smoothing to classify a short document.
-The posterior probability for the **negative class** was higher, so the text was labeled **Negative**.
-
----
-
-### 2️⃣ Harms of Classification Systems
-
-This assignment discusses real risks in NLP:
-
-* **Representational harm:** Models reinforcing stereotypes
-* **Censorship risk:** Toxicity systems suppressing identity-related speech
-* **Dialect bias:** Models performing worse on varieties like AAE or Indian English due to dataset imbalance
+These sentences are used to learn word frequencies and transitions between consecutive words.
 
 ---
 
-### 3️⃣ Bigram Language Models
+## ⚙️ What the Program Does
 
-Sentence probability computed as:
+The Python script performs the following steps:
+
+1. Reads the training sentences.
+2. Computes **unigram counts** (frequency of each word).
+3. Computes **bigram counts** (frequency of consecutive word pairs).
+4. Calculates bigram probabilities using MLE:
 
 [
-P(w_1…w_n)=\prod_{i=2}^{n} P(w_i|w_{i-1})
+P(w_2 \mid w_1) = \frac{\text{Count}(w_1, w_2)}{\text{Count}(w_1)}
 ]
 
-Observed that unseen bigrams cause probability to collapse to zero.
-This motivates smoothing or backoff strategies.
+5. Implements a function that calculates the probability of any sentence.
+6. Tests the model on two sentences:
+
+```
+I love NLP
+I love deep learning
+```
+
+7. Prints the probability of each sentence.
+8. Displays which sentence the model prefers based on the higher probability.
 
 ---
 
-### 4️⃣ Backoff Models
+## ▶️ How to Run the Program
 
-When trigram counts are zero, the model backs off to bigram probabilities.
-This ensures unseen sequences still receive meaningful probabilities.
-
----
-
-### 5️⃣ Evaluation Metrics
-
-From a confusion matrix, the following were computed:
-
-* **Precision and Recall per class**
-* **Macro-average** (treats all classes equally)
-* **Micro-average** (weighted by frequency)
-
-In single-label multi-class classification:
-[
-\text{Micro Precision} = \text{Micro Recall} = \text{Accuracy}
-]
-
----
-
-
-## 🛠 Requirements
-
-This project only uses the Python standard library and NumPy.
-
-Install NumPy if needed:
+1. Make sure **Python 3** is installed on your system.
+2. Clone or download this repository.
+3. Run the script from the terminal:
 
 ```bash
-pip install numpy
+python bigram_model.py
 ```
+
+---
+
+## 📊 Program Output
+
+When executed, the program will show:
+
+* Unigram counts
+* Bigram counts
+* Bigram probabilities
+* Sentence probabilities
+* The sentence preferred by the language model
+
+---
+
+## 🧠 Concept Explanation
+
+A **bigram language model** assumes that the probability of a word depends only on the previous word.
+To calculate the probability of a full sentence, the model multiplies the probability of each bigram in that sentence.
+
+The sentence with the higher final probability is considered more natural according to the model.
+
+---
+
+## ⚠️ Notes
+
+* This implementation uses **MLE without smoothing**.
+* If a bigram does not appear in the training data, its probability becomes **zero**, which causes the entire sentence probability to be zero.
+* The project is designed for learning purposes to understand how statistical language models work.
+
