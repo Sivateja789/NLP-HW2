@@ -41,7 +41,7 @@ The Python script performs the following steps:
 4. Calculates bigram probabilities using MLE:
 
 [
-P(w_2 \mid w_1) = \frac{\text{Count}(w_1, w_2)}{\text{Count}(w_1)}
+$P(w_2 \mid w_1) = \frac{Count(w_1, w_2)}{Count(w_1)}$
 ]
 
 5. Implements a function that calculates the probability of any sentence.
