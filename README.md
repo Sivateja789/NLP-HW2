@@ -57,18 +57,6 @@ I love deep learning
 
 ---
 
-## ▶️ How to Run the Program
-
-1. Make sure **Python 3** is installed on your system.
-2. Clone or download this repository.
-3. Run the script from the terminal:
-
-```bash
-python bigram_model.py
-```
-
----
-
 ## 📊 Program Output
 
 When executed, the program will show:
